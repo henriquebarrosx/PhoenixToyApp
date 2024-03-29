@@ -1,18 +1,29 @@
-# ToyApp
+## Deploying
 
-To start your Phoenix server:
+- Generating a secret key.
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+```bash
+mix phx.gen.secret
+```
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+- Creating a `.env` file.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+**NOTE: for development environment you only need to provide `POSTGRES_DB`, `POSTGRES_USER` and `POSTGRES_PASSWORD`.**
 
-## Learn more
+```bash
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+export MIX_ENV="prod"
+export PORT="4000"
+export PHX_HOST="example.com"
+export SECRET_KEY_BASE="REALLY_LONG_SECRET"
+export POSTGRES_DB="tutorial_app_prod"
+export POSTGRES_USER="postgres"
+export POSTGRES_PASSWORD="postgres"
+export DATABASE_URL="ecto://postgres:postgres@db/tutorial_app_prod"
+```
+
+- Running from docker
+
+```bash
+docker compose up -d
+```

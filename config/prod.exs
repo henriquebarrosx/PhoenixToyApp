@@ -10,8 +10,7 @@ host = System.get_env("PHX_HOST") || "localhost"
 
 config :toy_app, ToyAppWeb.Endpoint,
   http: [ip: {0, 0, 0, 0}, port: 4000],
-  url: [host: host, port: 80, scheme: "https"],
-  cache_static_manifest: "priv/static/manifest.json"
+  url: [host: host, port: 80, scheme: "https"]
 
 # Configures Swoosh API Client
 config :swoosh, api_client: Swoosh.ApiClient.Finch, finch_name: ToyApp.Finch
